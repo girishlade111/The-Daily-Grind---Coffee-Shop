@@ -42,6 +42,20 @@
             opacity: 1;
             transform: translateY(0);
         }
+        /* Loader for AI suggestion */
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 4px solid #6b4f4b;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -58,6 +72,7 @@
                     <a href="#home" class="text-gray-700 hover:text-[#6b4f4b] transition-colors duration-300">Home</a>
                     <a href="#about" class="text-gray-700 hover:text-[#6b4f4b] transition-colors duration-300">About</a>
                     <a href="#menu" class="text-gray-700 hover:text-[#6b4f4b] transition-colors duration-300">Menu</a>
+                     <a href="#ai-pairing" class="text-gray-700 hover:text-[#6b4f4b] transition-colors duration-300">AI Pairing</a>
                     <a href="#contact" class="text-gray-700 hover:text-[#6b4f4b] transition-colors duration-300">Contact</a>
                 </nav>
                 <button id="mobile-menu-button" class="md:hidden">
@@ -70,6 +85,7 @@
             <a href="#home" class="block py-2 px-6 text-gray-700 hover:bg-gray-100">Home</a>
             <a href="#about" class="block py-2 px-6 text-gray-700 hover:bg-gray-100">About</a>
             <a href="#menu" class="block py-2 px-6 text-gray-700 hover:bg-gray-100">Menu</a>
+            <a href="#ai-pairing" class="block py-2 px-6 text-gray-700 hover:bg-gray-100">AI Pairing</a>
             <a href="#contact" class="block py-2 px-6 text-gray-700 hover:bg-gray-100">Contact</a>
         </div>
     </header>
@@ -128,9 +144,33 @@
             </div>
         </div>
     </section>
+    
+    <!-- AI Pairing Section -->
+    <section id="ai-pairing" class="py-20 bg-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold text-[#6b4f4b] mb-4 fade-in-up">✨ AI Coffee Pairing</h2>
+            <p class="max-w-2xl mx-auto mb-10 text-gray-600 fade-in-up">Can't decide what to pair with your favorite drink or snack? Let our AI barista help you find the perfect match!</p>
+            
+            <div class="max-w-xl mx-auto fade-in-up">
+                <div class="bg-gray-50 p-8 rounded-lg shadow-md">
+                    <label for="menu-item-select" class="block text-left text-lg font-semibold mb-2 text-[#6b4f4b]">Choose a menu item:</label>
+                    <select id="menu-item-select" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#c0a080] focus:border-[#c0a080] transition">
+                        <!-- Options will be populated by JS -->
+                    </select>
+                    <button id="get-pairing-btn" class="mt-6 w-full bg-[#c0a080] text-white font-bold py-3 px-8 rounded-full hover:bg-[#a08060] transition-transform duration-300 transform hover:scale-105 flex items-center justify-center space-x-2">
+                        <span>Get Pairing Suggestion</span>
+                        <i data-feather="sparkles" class="w-5 h-5"></i>
+                    </button>
+                    <div id="pairing-result" class="mt-6 text-left min-h-[100px] bg-white p-4 rounded-lg border border-gray-200">
+                        <p class="text-gray-500">Your AI-powered pairing suggestion will appear here...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-white">
+    <section id="contact" class="py-20">
         <div class="container mx-auto px-6 text-center">
             <h2 class="text-3xl font-bold text-[#6b4f4b] mb-4 fade-in-up">Visit Us</h2>
             <p class="max-w-2xl mx-auto mb-10 text-gray-600 fade-in-up">We can't wait to serve you.</p>
@@ -157,7 +197,6 @@
                     </div>
                 </div>
                 <div class="rounded-lg overflow-hidden shadow-md h-96 fade-in-up">
-                    <!-- Replace with a real map embed if needed -->
                     <img src="https://placehold.co/800x600/e2e8f0/6b4f4b?text=Our+Location\n(Map+Placeholder)" alt="Map Placeholder" class="w-full h-full object-cover">
                 </div>
             </div>
@@ -168,9 +207,11 @@
     <footer class="bg-[#6b4f4b] text-white py-10">
         <div class="container mx-auto px-6 text-center">
             <div class="flex justify-center space-x-6 mb-4">
-                <a href="#" class="hover:opacity-75"><i data-feather="instagram"></i></a>
-                <a href="#" class="hover:opacity-75"><i data-feather="facebook"></i></a>
-                <a href="#" class="hover:opacity-75"><i data-feather="twitter"></i></a>
+                <a href="https://www.instagram.com/girish_lade_/" target="_blank" rel="noopener noreferrer" class="hover:opacity-75"><i data-feather="instagram"></i></a>
+                <a href="https://www.linkedin.com/in/girish-lade-075bba201/" target="_blank" rel="noopener noreferrer" class="hover:opacity-75"><i data-feather="linkedin"></i></a>
+                <a href="https://github.com/girishlade111" target="_blank" rel="noopener noreferrer" class="hover:opacity-75"><i data-feather="github"></i></a>
+                <a href="https://codepen.io/Girish-Lade-the-looper" target="_blank" rel="noopener noreferrer" class="hover:opacity-75"><i data-feather="codepen"></i></a>
+                <a href="mailto:girishlade111@gmail.com" class="hover:opacity-75"><i data-feather="mail"></i></a>
             </div>
             <p>&copy; <span id="year"></span> The Daily Grind. All Rights Reserved.</p>
         </div>
@@ -180,122 +221,86 @@
     <button id="scrollToTopBtn" class="fixed bottom-5 right-5 bg-[#c0a080] p-3 rounded-full text-white shadow-lg hidden hover:bg-[#a08060] transition-all duration-300">
         <i data-feather="arrow-up"></i>
     </button>
+    
+    <!-- Error Modal -->
+    <div id="error-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
+        <div class="bg-white p-8 rounded-lg shadow-xl text-center max-w-sm mx-auto">
+            <h3 class="text-xl font-bold text-red-600 mb-4">Oops!</h3>
+            <p id="error-message" class="text-gray-700 mb-6">Something went wrong. Please try again later.</p>
+            <button id="close-modal-btn" class="bg-gray-300 text-gray-800 font-bold py-2 px-6 rounded-full hover:bg-gray-400 transition-colors">Close</button>
+        </div>
+    </div>
 
 
     <script>
-        // Feather Icons
-        feather.replace();
+    document.addEventListener('DOMContentLoaded', () => {
+        // --- INITIALIZATION ---
+        try {
+            feather.replace();
+        } catch (e) {
+            console.error("Feather Icons failed to initialize.", e);
+        }
 
-        // --- INTERACTIVITY ---
-
-        // Mobile Menu Toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Close mobile menu on link click
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-        
-        // Dynamic Year for Footer
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        // Header scroll effect
-        const header = document.getElementById('header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('bg-white', 'shadow-md');
-                header.classList.remove('bg-transparent');
-            } else {
-                header.classList.remove('bg-white', 'shadow-md');
-                header.classList.add('bg-transparent');
-            }
-        });
-
-        // Menu Data
+        // --- MENU DATA ---
         const menuData = {
             coffee: [
-                { name: "Espresso", description: "A concentrated coffee beverage brewed by forcing hot water under pressure through finely-ground coffee beans.", price: "₹150" },
-                { name: "Americano", description: "A shot of espresso diluted with hot water, giving it a similar strength to, but different flavor from, traditionally brewed coffee.", price: "₹180" },
-                { name: "Cappuccino", description: "An espresso-based coffee drink that originated in Italy, and is traditionally prepared with steamed milk foam.", price: "₹220" },
-                { name: "Latte", description: "A coffee drink made with espresso and steamed milk, much more milk than a cappuccino.", price: "₹220" },
-                { name: "Mocha", description: "A chocolate-flavoured variant of a caffè latte. Other commonly used spellings are mochaccino and also mochachino.", price: "₹250" },
-                { name: "Pour Over", description: "A manual brewing method that produces a clean, clear, and consistent cup.", price: "₹280" }
+                { name: "Espresso", description: "A concentrated coffee beverage...", price: "₹150" },
+                { name: "Americano", description: "A shot of espresso diluted with hot water...", price: "₹180" },
+                { name: "Cappuccino", description: "An espresso-based coffee drink...", price: "₹220" },
+                { name: "Latte", description: "A coffee drink made with espresso and steamed milk...", price: "₹220" },
+                { name: "Mocha", description: "A chocolate-flavoured variant of a caffè latte...", price: "₹250" },
+                { name: "Pour Over", description: "A manual brewing method...", price: "₹280" }
             ],
             tea: [
-                { name: "Masala Chai", description: "A classic Indian spiced tea made with black tea, milk, and a mixture of aromatic herbs and spices.", price: "₹120" },
-                { name: "Green Tea", description: "Made from unoxidized leaves and is one of the less processed types of tea.", price: "₹150" },
-                { name: "Matcha Latte", description: "A finely ground powder of specially grown and processed green tea leaves, traditionally used in East Asia.", price: "₹240" },
-                { name: "Earl Grey", description: "A black tea blend which has been flavoured with oil of bergamot.", price: "₹180" },
-                { name: "Iced Tea", description: "A refreshing chilled tea, often sweetened and flavored with lemon.", price: "₹160" },
-                { name: "Herbal Infusion", description: "A caffeine-free blend of herbs, flowers, and fruits. Ask for our daily selection.", price: "₹170" },
+                { name: "Masala Chai", description: "A classic Indian spiced tea...", price: "₹120" },
+                { name: "Green Tea", description: "Made from unoxidized leaves...", price: "₹150" },
+                { name: "Matcha Latte", description: "Finely ground powder of green tea leaves...", price: "₹240" },
+                { name: "Earl Grey", description: "A black tea blend with oil of bergamot.", price: "₹180" },
+                { name: "Iced Tea", description: "A refreshing chilled tea...", price: "₹160" },
+                { name: "Herbal Infusion", description: "A caffeine-free blend of herbs...", price: "₹170" },
             ],
             pastries: [
-                { name: "Croissant", description: "A buttery, flaky, viennoiserie pastry of Austrian origin, but mostly associated with France.", price: "₹180" },
-                { name: "Chocolate Chip Cookie", description: "A classic drop cookie featuring chocolate chips as its distinguishing ingredient.", price: "₹120" },
-                { name: "Blueberry Muffin", description: "A tender muffin bursting with fresh blueberries and a hint of lemon.", price: "₹150" },
-                { name: "Cinnamon Roll", description: "A sweet rolled pastry served for breakfast or dessert, filled with a cinnamon-sugar filling.", price: "₹200" },
-                { name: "Banana Bread", description: "A type of bread made from mashed bananas. It is often a moist, sweet, cake-like quick bread.", price: "₹160" },
-                { name: "Almond Biscotti", description: "A twice-baked Italian almond biscuit. Dry and crunchy, perfect for dipping in coffee.", price: "₹100" },
+                { name: "Croissant", description: "A buttery, flaky, viennoiserie pastry...", price: "₹180" },
+                { name: "Chocolate Chip Cookie", description: "A classic drop cookie...", price: "₹120" },
+                { name: "Blueberry Muffin", description: "A tender muffin with fresh blueberries...", price: "₹150" },
+                { name: "Cinnamon Roll", description: "A sweet rolled pastry...", price: "₹200" },
+                { name: "Banana Bread", description: "Made from mashed bananas...", price: "₹160" },
+                { name: "Almond Biscotti", description: "A twice-baked Italian almond biscuit...", price: "₹100" },
             ]
         };
 
-        // Function to create a menu item card
-        const createMenuItem = (item) => `
-            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
-                <div class="flex justify-between items-baseline">
-                    <h4 class="font-bold text-lg text-[#6b4f4b]">${item.name}</h4>
-                    <p class="font-semibold text-[#c0a080]">${item.price}</p>
-                </div>
-                <p class="text-gray-600 mt-2 text-sm">${item.description}</p>
-            </div>
-        `;
+        // --- UI ELEMENTS ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const header = document.getElementById('header');
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+        const getPairingBtn = document.getElementById('get-pairing-btn');
+        const pairingResultDiv = document.getElementById('pairing-result');
+        const menuItemSelect = document.getElementById('menu-item-select');
+        const errorModal = document.getElementById('error-modal');
+        const errorMessage = document.getElementById('error-message');
+        const closeModalBtn = document.getElementById('close-modal-btn');
 
-        // Populate Menu
-        const coffeePanel = document.getElementById('coffee');
-        const teaPanel = document.getElementById('tea');
-        const pastriesPanel = document.getElementById('pastries');
-        
-        coffeePanel.innerHTML = menuData.coffee.map(createMenuItem).join('');
-        teaPanel.innerHTML = menuData.tea.map(createMenuItem).join('');
-        pastriesPanel.innerHTML = menuData.pastries.map(createMenuItem).join('');
 
-        // Menu Tab Functionality
-        const menuTabs = document.querySelectorAll('.menu-tab');
-        const menuPanels = document.querySelectorAll('.menu-panel');
-
-        menuTabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                // Deactivate all tabs and hide all panels
-                menuTabs.forEach(t => t.classList.remove('active'));
-                menuPanels.forEach(p => p.classList.add('hidden'));
-
-                // Activate clicked tab and show corresponding panel
-                tab.classList.add('active');
-                const targetPanel = document.getElementById(tab.dataset.target);
-                targetPanel.classList.remove('hidden');
+        // --- GENERAL INTERACTIVITY ---
+        mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        document.querySelectorAll('#mobile-menu a, #mobile-menu-button').forEach(link => {
+            link.addEventListener('click', () => {
+                // Timeout to allow navigation before hiding
+                 setTimeout(() => mobileMenu.classList.add('hidden'), 100);
             });
         });
-        
-        // Scroll to top button
-        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
-        window.onscroll = function() {
-            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-                scrollToTopBtn.classList.remove('hidden');
-            } else {
-                scrollToTopBtn.classList.add('hidden');
-            }
-        };
+        document.getElementById('year').textContent = new Date().getFullYear();
 
-        scrollToTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('bg-white', window.scrollY > 50);
+            header.classList.toggle('shadow-md', window.scrollY > 50);
+            header.classList.toggle('bg-transparent', window.scrollY <= 50);
+            scrollToTopBtn.classList.toggle('hidden', document.body.scrollTop <= 300 && document.documentElement.scrollTop <= 300);
         });
-        
+
+        scrollToTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
         // Fade in on scroll animation
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -303,12 +308,99 @@
                     entry.target.classList.add('visible');
                 }
             });
-        }, {
-            threshold: 0.1
-        });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
 
-        const fadeElements = document.querySelectorAll('.fade-in-up');
-        fadeElements.forEach(el => observer.observe(el));
+        // --- MENU SECTION LOGIC ---
+        const createMenuItem = (item) => `
+            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                <div class="flex justify-between items-baseline">
+                    <h4 class="font-bold text-lg text-[#6b4f4b]">${item.name}</h4>
+                    <p class="font-semibold text-[#c0a080]">${item.price}</p>
+                </div>
+                <p class="text-gray-600 mt-2 text-sm">${item.description}</p>
+            </div>`;
+
+        const populateMenu = () => {
+            document.getElementById('coffee').innerHTML = menuData.coffee.map(createMenuItem).join('');
+            document.getElementById('tea').innerHTML = menuData.tea.map(createMenuItem).join('');
+            document.getElementById('pastries').innerHTML = menuData.pastries.map(createMenuItem).join('');
+        };
+        populateMenu();
+
+        document.querySelectorAll('.menu-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.menu-panel').forEach(p => p.classList.add('hidden'));
+                tab.classList.add('active');
+                document.getElementById(tab.dataset.target).classList.remove('hidden');
+            });
+        });
+        
+        // --- AI PAIRING SECTION LOGIC ---
+
+        const populatePairingDropdown = () => {
+            const allItems = [...menuData.coffee, ...menuData.tea, ...menuData.pastries];
+            menuItemSelect.innerHTML = allItems.map(item => `<option value="${item.name}">${item.name}</option>`).join('');
+        };
+        populatePairingDropdown();
+
+        const showErrorModal = (message = "An unknown error occurred. Please try again.") => {
+            errorMessage.textContent = message;
+            errorModal.classList.remove('hidden');
+        };
+
+        closeModalBtn.addEventListener('click', () => errorModal.classList.add('hidden'));
+
+        getPairingBtn.addEventListener('click', async () => {
+            const selectedItem = menuItemSelect.value;
+            if (!selectedItem) return;
+
+            pairingResultDiv.innerHTML = '<div class="loader"></div>';
+            getPairingBtn.disabled = true;
+
+            const userQuery = `I am at a friendly coffee shop called 'The Daily Grind'. I'm thinking of having a ${selectedItem}. What is a creative and delicious food or drink pairing for it from a typical coffee shop menu? Please provide a short, one-paragraph suggestion.`;
+            
+            const apiKey = ""; // API key is handled by the environment
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+            const payload = {
+                contents: [{ parts: [{ text: userQuery }] }],
+            };
+            
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    console.error("API Error:", errorData);
+                    throw new Error(`API request failed with status ${response.status}.`);
+                }
+
+                const result = await response.json();
+                const candidate = result.candidates?.[0];
+
+                if (candidate && candidate.content?.parts?.[0]?.text) {
+                    const text = candidate.content.parts[0].text;
+                    pairingResultDiv.innerHTML = `<p class="text-gray-700">${text.replace(/\n/g, '<br>')}</p>`;
+                } else {
+                     throw new Error("Invalid response structure from the API.");
+                }
+
+            } catch (error) {
+                console.error('Error fetching pairing suggestion:', error);
+                pairingResultDiv.innerHTML = `<p class="text-red-500">Sorry, we couldn't fetch a suggestion right now. Please try again.</p>`;
+                showErrorModal("We couldn't connect to our AI Barista. Please check your connection and try again.");
+            } finally {
+                getPairingBtn.disabled = false;
+            }
+        });
+    });
     </script>
 </body>
 </html>
+
