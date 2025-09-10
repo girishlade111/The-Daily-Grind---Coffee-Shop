@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Daily Grind - Artisan Coffee</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f7f5;
+            color: #4a4a4a;
+        }
+        /* Custom scrollbar for a more subtle look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f8f7f5;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #c0a080;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a08060;
+        }
+        /* Active state for menu tabs */
+        .menu-tab.active {
+            background-color: #6b4f4b;
+            color: #ffffff;
+        }
+        /* Animation class */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                     <svg class="w-8 h-8 text-[#6b4f4b]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-6.364-.386l1.591-1.591M3 12H.75m.386-6.364L4.591 7.091M12 6a6 6 0 016 6 6 6 0 01-6 6 6 6 0 01-6-6 6 6 0 016-6z"></path></svg>
+                    <a href="#" class="text-2xl font-bold text-[#6b4f4b]">The Daily Grind</a>
+                </div>
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-[#6b4f4b] transition-colors duration-300">Home</a>
+                    <a href="#about" class="text-gray-700 hover:text-[#6b4f4b] transition-colors duration-300">About</a>
+                    <a href="#menu" class="text-gray-700 hover:text-[#6b4f4b] transition-colors duration-300">Menu</a>
+                    <a href="#contact" class="text-gray-700 hover:text-[#6b4f4b] transition-colors duration-300">Contact</a>
+                </nav>
+                <button id="mobile-menu-button" class="md:hidden">
+                    <i data-feather="menu" class="text-[#6b4f4b]"></i>
+                </button>
+            </div>
+        </div>
+         <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+            <a href="#home" class="block py-2 px-6 text-gray-700 hover:bg-gray-100">Home</a>
+            <a href="#about" class="block py-2 px-6 text-gray-700 hover:bg-gray-100">About</a>
+            <a href="#menu" class="block py-2 px-6 text-gray-700 hover:bg-gray-100">Menu</a>
+            <a href="#contact" class="block py-2 px-6 text-gray-700 hover:bg-gray-100">Contact</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen bg-cover bg-center flex items-center pt-20" style="background-image: url('https://images.unsplash.com/photo-1559925393-8be0ec4767c8?q=80&w=2070&auto=format&fit=crop');">
+        <div class="absolute inset-0 bg-black/50"></div>
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 leading-tight">Crafting Your Perfect Cup</h1>
+            <p class="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl mx-auto">Experience the art of coffee with our single-origin beans, expert baristas, and a warm, inviting atmosphere.</p>
+            <a href="#menu" class="bg-[#c0a080] text-white font-bold py-3 px-8 rounded-full hover:bg-[#a08060] transition-transform duration-300 transform hover:scale-105">Explore Our Menu</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="fade-in-up">
+                    <img src="https://images.unsplash.com/photo-1511920183353-3c0a5d5a49c6?q=80&w=1887&auto=format&fit=crop" alt="Coffee beans and grinder" class="rounded-lg shadow-2xl w-full h-auto object-cover">
+                </div>
+                <div class="fade-in-up">
+                    <h2 class="text-3xl font-bold text-[#6b4f4b] mb-4">Our Story</h2>
+                    <p class="mb-4">Founded in 2023, The Daily Grind started with a simple idea: to create a space where the community could gather and enjoy exceptionally good coffee. We believe that a great cup of coffee can be a small but meaningful ritual in your day.</p>
+                    <p class="mb-6">We partner with local and international farmers who share our commitment to quality and sustainability. Every bean is carefully selected and roasted in-house to bring out its unique character and flavor profile.</p>
+                    <a href="#contact" class="text-[#c0a080] font-semibold hover:underline">Come say hello! &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-20">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold text-[#6b4f4b] mb-4 fade-in-up">Our Menu</h2>
+            <p class="max-w-2xl mx-auto mb-10 text-gray-600 fade-in-up">From classic espressos to creative seasonal drinks, there's something for everyone.</p>
+
+            <!-- Menu Tabs -->
+            <div id="menu-tabs" class="flex justify-center space-x-2 md:space-x-4 mb-10 fade-in-up">
+                <button data-target="coffee" class="menu-tab active px-4 py-2 md:px-6 md:py-3 rounded-full font-semibold transition-all duration-300">Coffee</button>
+                <button data-target="tea" class="menu-tab px-4 py-2 md:px-6 md:py-3 rounded-full font-semibold transition-all duration-300">Tea & More</button>
+                <button data-target="pastries" class="menu-tab px-4 py-2 md:px-6 md:py-3 rounded-full font-semibold transition-all duration-300">Pastries</button>
+            </div>
+
+            <!-- Menu Content -->
+            <div id="menu-content" class="fade-in-up">
+                <div id="coffee" class="menu-panel grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
+                    <!-- Coffee items will be injected here by JS -->
+                </div>
+                <div id="tea" class="menu-panel hidden grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
+                    <!-- Tea items will be injected here by JS -->
+                </div>
+                <div id="pastries" class="menu-panel hidden grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
+                    <!-- Pastry items will be injected here by JS -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold text-[#6b4f4b] mb-4 fade-in-up">Visit Us</h2>
+            <p class="max-w-2xl mx-auto mb-10 text-gray-600 fade-in-up">We can't wait to serve you.</p>
+
+            <div class="grid md:grid-cols-2 gap-12 text-left">
+                <div class="bg-gray-50 p-8 rounded-lg shadow-md fade-in-up">
+                    <h3 class="font-bold text-xl mb-4 text-[#6b4f4b]">Contact & Hours</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-4">
+                            <i data-feather="map-pin" class="text-[#c0a080] mt-1"></i>
+                            <p>123 Coffee Lane<br>Dhule, Maharashtra, 424001</p>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <i data-feather="phone" class="text-[#c0a080]"></i>
+                            <p>(+91) 987-654-3210</p>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <i data-feather="clock" class="text-[#c0a080] mt-1"></i>
+                            <p>
+                                <span class="font-semibold">Monday - Friday:</span> 7am - 7pm<br>
+                                <span class="font-semibold">Saturday - Sunday:</span> 8am - 6pm
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="rounded-lg overflow-hidden shadow-md h-96 fade-in-up">
+                    <!-- Replace with a real map embed if needed -->
+                    <img src="https://placehold.co/800x600/e2e8f0/6b4f4b?text=Our+Location\n(Map+Placeholder)" alt="Map Placeholder" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#6b4f4b] text-white py-10">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="#" class="hover:opacity-75"><i data-feather="instagram"></i></a>
+                <a href="#" class="hover:opacity-75"><i data-feather="facebook"></i></a>
+                <a href="#" class="hover:opacity-75"><i data-feather="twitter"></i></a>
+            </div>
+            <p>&copy; <span id="year"></span> The Daily Grind. All Rights Reserved.</p>
+        </div>
+    </footer>
+    
+    <!-- Scroll to top button -->
+    <button id="scrollToTopBtn" class="fixed bottom-5 right-5 bg-[#c0a080] p-3 rounded-full text-white shadow-lg hidden hover:bg-[#a08060] transition-all duration-300">
+        <i data-feather="arrow-up"></i>
+    </button>
+
+
+    <script>
+        // Feather Icons
+        feather.replace();
+
+        // --- INTERACTIVITY ---
+
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // Dynamic Year for Footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('bg-white', 'shadow-md');
+                header.classList.remove('bg-transparent');
+            } else {
+                header.classList.remove('bg-white', 'shadow-md');
+                header.classList.add('bg-transparent');
+            }
+        });
+
+        // Menu Data
+        const menuData = {
+            coffee: [
+                { name: "Espresso", description: "A concentrated coffee beverage brewed by forcing hot water under pressure through finely-ground coffee beans.", price: "₹150" },
+                { name: "Americano", description: "A shot of espresso diluted with hot water, giving it a similar strength to, but different flavor from, traditionally brewed coffee.", price: "₹180" },
+                { name: "Cappuccino", description: "An espresso-based coffee drink that originated in Italy, and is traditionally prepared with steamed milk foam.", price: "₹220" },
+                { name: "Latte", description: "A coffee drink made with espresso and steamed milk, much more milk than a cappuccino.", price: "₹220" },
+                { name: "Mocha", description: "A chocolate-flavoured variant of a caffè latte. Other commonly used spellings are mochaccino and also mochachino.", price: "₹250" },
+                { name: "Pour Over", description: "A manual brewing method that produces a clean, clear, and consistent cup.", price: "₹280" }
+            ],
+            tea: [
+                { name: "Masala Chai", description: "A classic Indian spiced tea made with black tea, milk, and a mixture of aromatic herbs and spices.", price: "₹120" },
+                { name: "Green Tea", description: "Made from unoxidized leaves and is one of the less processed types of tea.", price: "₹150" },
+                { name: "Matcha Latte", description: "A finely ground powder of specially grown and processed green tea leaves, traditionally used in East Asia.", price: "₹240" },
+                { name: "Earl Grey", description: "A black tea blend which has been flavoured with oil of bergamot.", price: "₹180" },
+                { name: "Iced Tea", description: "A refreshing chilled tea, often sweetened and flavored with lemon.", price: "₹160" },
+                { name: "Herbal Infusion", description: "A caffeine-free blend of herbs, flowers, and fruits. Ask for our daily selection.", price: "₹170" },
+            ],
+            pastries: [
+                { name: "Croissant", description: "A buttery, flaky, viennoiserie pastry of Austrian origin, but mostly associated with France.", price: "₹180" },
+                { name: "Chocolate Chip Cookie", description: "A classic drop cookie featuring chocolate chips as its distinguishing ingredient.", price: "₹120" },
+                { name: "Blueberry Muffin", description: "A tender muffin bursting with fresh blueberries and a hint of lemon.", price: "₹150" },
+                { name: "Cinnamon Roll", description: "A sweet rolled pastry served for breakfast or dessert, filled with a cinnamon-sugar filling.", price: "₹200" },
+                { name: "Banana Bread", description: "A type of bread made from mashed bananas. It is often a moist, sweet, cake-like quick bread.", price: "₹160" },
+                { name: "Almond Biscotti", description: "A twice-baked Italian almond biscuit. Dry and crunchy, perfect for dipping in coffee.", price: "₹100" },
+            ]
+        };
+
+        // Function to create a menu item card
+        const createMenuItem = (item) => `
+            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                <div class="flex justify-between items-baseline">
+                    <h4 class="font-bold text-lg text-[#6b4f4b]">${item.name}</h4>
+                    <p class="font-semibold text-[#c0a080]">${item.price}</p>
+                </div>
+                <p class="text-gray-600 mt-2 text-sm">${item.description}</p>
+            </div>
+        `;
+
+        // Populate Menu
+        const coffeePanel = document.getElementById('coffee');
+        const teaPanel = document.getElementById('tea');
+        const pastriesPanel = document.getElementById('pastries');
+        
+        coffeePanel.innerHTML = menuData.coffee.map(createMenuItem).join('');
+        teaPanel.innerHTML = menuData.tea.map(createMenuItem).join('');
+        pastriesPanel.innerHTML = menuData.pastries.map(createMenuItem).join('');
+
+        // Menu Tab Functionality
+        const menuTabs = document.querySelectorAll('.menu-tab');
+        const menuPanels = document.querySelectorAll('.menu-panel');
+
+        menuTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Deactivate all tabs and hide all panels
+                menuTabs.forEach(t => t.classList.remove('active'));
+                menuPanels.forEach(p => p.classList.add('hidden'));
+
+                // Activate clicked tab and show corresponding panel
+                tab.classList.add('active');
+                const targetPanel = document.getElementById(tab.dataset.target);
+                targetPanel.classList.remove('hidden');
+            });
+        });
+        
+        // Scroll to top button
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+        window.onscroll = function() {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                scrollToTopBtn.classList.remove('hidden');
+            } else {
+                scrollToTopBtn.classList.add('hidden');
+            }
+        };
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Fade in on scroll animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        const fadeElements = document.querySelectorAll('.fade-in-up');
+        fadeElements.forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
